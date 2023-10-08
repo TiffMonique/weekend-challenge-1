@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"moniquedev.lat/challenge/evenodd"
+	"moniquedev.lat/challenge/loops"
 	"moniquedev.lat/challenge/physics"
 )
 
@@ -24,5 +25,10 @@ func main() {
 		fmt.Println("Dame los valores para v,r e i")
 		fmt.Scan(&v, &r, &i)
 		fmt.Println(physics.Ohm(v, r, i))
+	case "foobar":
+		var num int
+		fmt.Println("Cual sera el limite de foobar?")
+		fmt.Scan(&num)
+		fmt.Println(loops.Foobar(num))
 	}
 }
