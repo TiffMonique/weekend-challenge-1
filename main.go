@@ -7,6 +7,7 @@ import (
 	"moniquedev.lat/challenge/bmi"
 	"moniquedev.lat/challenge/evenodd"
 	"moniquedev.lat/challenge/loops"
+	"moniquedev.lat/challenge/mario"
 	"moniquedev.lat/challenge/physics"
 )
 
@@ -50,5 +51,17 @@ func main() {
 		} else {
 			fmt.Println("You are overweight, I know, the pandemic has affected us all")
 		}
+	case "mario":
+		var height int
+		for {
+			fmt.Print("Pyramid height: ")
+			_, err := fmt.Scanln(&height)
+			if err != nil || height < 1 || height > 8 {
+				fmt.Println("Invalid input. Please enter a number between 1 and 8.")
+			} else {
+				break
+			}
+		}
+		mario.Mario(height)
 	}
 }
