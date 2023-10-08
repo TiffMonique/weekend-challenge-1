@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"moniquedev.lat/challenge/bmi"
 	"moniquedev.lat/challenge/evenodd"
 	"moniquedev.lat/challenge/loops"
 	"moniquedev.lat/challenge/physics"
@@ -30,5 +31,24 @@ func main() {
 		fmt.Println("Cual sera el limite de foobar?")
 		fmt.Scan(&num)
 		fmt.Println(loops.Foobar(num))
+	case "bmi":
+		var weight, height float32
+
+		fmt.Println("How much do you weigh? (don't lie)")
+		fmt.Scanln(&weight)
+
+		fmt.Println("How tall are you? (barefoot)")
+		fmt.Scanln(&height)
+
+		bmi := bmi.Bmi(weight, height)
+		fmt.Printf("Right now your BMI is %.2f\n", bmi)
+
+		if bmi < 18.5 {
+			fmt.Println("You are underweight, add more potato to the broth")
+		} else if bmi < 25 {
+			fmt.Println("You have a normal weight, I have healthy envy of you")
+		} else {
+			fmt.Println("You are overweight, I know, the pandemic has affected us all")
+		}
 	}
 }
